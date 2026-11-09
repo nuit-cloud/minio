@@ -1,5 +1,5 @@
 # The MinIO server as the Nuit Cloud platform runs it (see NUIT-CLOUD.md). Compiled from this repository's own source, unchanged from upstream
-# at the release this branch starts from, and stamped the way upstream's release build stamps it (buildscripts/gen-ldflags.go). `mc` comes
+# at the release `main` starts from, and stamped the way upstream's release build stamps it (buildscripts/gen-ldflags.go). `mc` comes
 # from the fork's own published image, pinned by digest: the platform's health check runs `mc ready local`.
 #
 #   docker buildx build -f Dockerfile.nuit-cloud --platform linux/amd64,linux/arm64 .
