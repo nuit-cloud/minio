@@ -21,11 +21,11 @@ other branch.
 Build locally first (`docker buildx build -f Dockerfile.nuit-cloud --platform linux/amd64,linux/arm64 -o type=local,dest=out .`), then push a
 tag `nuit-cloud/<release>`, for example `nuit-cloud/RELEASE.2025-10-15T17-29-55Z`. The workflow builds amd64 and arm64, pushes
 `ghcr.io/nuit-cloud/minio:<release>` with an SBOM and provenance, signs it by digest with cosign and writes the digest to the run's
-summary. The platform (github.com/mgjoyce/nuit-cloud) pins that digest; moving to a new image is changing the digest there (deploy/CLAUDE.md).
+summary. The platform (github.com/nuit-cloud/nuit-cloud) pins that digest; moving to a new image is changing the digest there (deploy/CLAUDE.md).
 
 ## Security patches
 
 Upstream will not fix anything again: security patches land here, on `main`, as ordinary commits (a Go dependency bump, a backported
 fix). Release a patched build under a new tag, `nuit-cloud/<upstream release>-nc<n>` (the build stamps `--version` from the part up to
 `Z`, and the image's revision label names the commit built). The longer-term plan is to move off MinIO altogether (an issue in
-mgjoyce/nuit-cloud).
+nuit-cloud/nuit-cloud).
