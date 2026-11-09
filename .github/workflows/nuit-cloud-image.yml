@@ -1,4 +1,4 @@
-# Builds and publishes ghcr.io/nuit-cloud/nuit-cloud-minio from Dockerfile.nuit-cloud, on a tag nuit-cloud/<release> (see NUIT-CLOUD.md). The
+# Builds and publishes ghcr.io/nuit-cloud/minio from Dockerfile.nuit-cloud, on a tag nuit-cloud/<release> (see NUIT-CLOUD.md). The
 # only workflow in this fork: upstream's were removed so they spend no runner time. Both architectures are cross-compiled on the runner's own
 # platform, so no QEMU is set up.
 name: nuit-cloud image
@@ -19,7 +19,7 @@ jobs:
       packages: write
       id-token: write   # cosign's keyless signature
     env:
-      IMAGE: ghcr.io/nuit-cloud/nuit-cloud-minio
+      IMAGE: ghcr.io/nuit-cloud/minio
     steps:
       - uses: actions/checkout@v7
       - uses: docker/setup-buildx-action@v4

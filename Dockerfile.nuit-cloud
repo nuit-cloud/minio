@@ -7,8 +7,8 @@
 # Go cross-compiles on the builder's own platform for the target's (CGO off, so the binary is static), and the final stage runs nothing:
 # no step runs under emulation.
 ARG GO_IMAGE=golang:1.24-alpine
-# ghcr.io/nuit-cloud/nuit-cloud-mc, released from github.com/nuit-cloud/mc; move to a new release by changing the digest
-ARG MC_IMAGE=ghcr.io/nuit-cloud/nuit-cloud-mc@sha256:fff63f678f5ab63b380c6ff87fd0963f34b8f782fe564ce46d5d7df643fa4e05
+# ghcr.io/nuit-cloud/mc, released from github.com/nuit-cloud/mc; move to a new release by changing the digest
+ARG MC_IMAGE=ghcr.io/nuit-cloud/mc@sha256:acf26f84e40e3714f32e4096d9be520fe0cb20eb02fedef5de1f7efd668e9481
 
 FROM ${MC_IMAGE} AS mc
 
@@ -31,7 +31,7 @@ RUN --mount=type=cache,target=/go/pkg/mod --mount=type=cache,target=/root/.cache
 FROM alpine:3.22
 ARG RELEASE=RELEASE.2025-10-15T17-29-55Z
 ARG REVISION=unknown
-LABEL org.opencontainers.image.title="nuit-cloud-minio" \
+LABEL org.opencontainers.image.title="minio" \
       org.opencontainers.image.description="The MinIO server, built from the Nuit Cloud fork of github.com/minio/minio, with mc for its health check" \
       org.opencontainers.image.source="https://github.com/nuit-cloud/minio" \
       org.opencontainers.image.version="$RELEASE" \
